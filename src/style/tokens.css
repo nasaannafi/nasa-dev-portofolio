@@ -1,0 +1,40 @@
+
+:root {
+  color-scheme: dark;
+
+  /* Brand */
+  --color-bg: #0b0d0c;
+  --color-surface: #141714;
+  --color-surface-raised: #1b1f1a;
+  --color-border: #30352f;
+
+  /* Text */
+  --color-text: #f3f4ef;
+  --color-text-muted: #a4aaa0;
+
+  /* Accent */
+  --color-accent: #c4f56a;
+  --color-accent-hover: #d5ff8a;
+
+  /* Typography */
+  --font-body: "Manrope", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Layout */
+  --container-width: 1120px;
+  --page-gutter: 32px;
+  --section-space: 112px;
+
+  /* Shape and motion */
+  --radius-card: 14px;
+  --radius-button: 7px;
+  --transition-fast: 180ms ease;
+  --transition-normal: 300ms ease;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: 20px;
+    --section-space: 76px;
+  }
+}
