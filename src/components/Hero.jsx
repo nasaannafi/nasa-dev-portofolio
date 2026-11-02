@@ -1,41 +1,80 @@
-
+import { motion } from 'motion/react'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.16,
+    },
+  },
+}
+
+const textVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+}
 
 function Hero() {
   return (
-    <section className="hero">
+    <section className="hero hero-glow">
+      <div className="hero-decor hero-decor-dots" />
+      <div className="hero-decor hero-decor-orbit" />
+
       <div className="container hero-content">
-        <p className="hero-eyebrow">
-          JUNIOR WEB DEVELOPER <span>·</span> INDONESIA
-        </p>
+        <motion.div
+          className="hero-text"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p className="hero-eyebrow" variants={textVariants}>
+            JUNIOR WEB DEVELOPER <span>·</span> INDONESIA
+          </motion.p>
 
-        <h1>
-          Building digital
-          <br />
-          experiences that
-          <br />
-          <span>work.</span>
-        </h1>
+          <motion.h1 variants={textVariants}>
+            Hi, I’m
+            <br />
+            Jawadhika Khoirun
+            <br />
+            Nasa Annafi<span className="hero-period">.</span>
+          </motion.h1>
 
-        <p className="hero-description">
-          Saya mengembangkan aplikasi web dengan fokus pada
-          fungsionalitas, desain yang jelas, dan pengalaman pengguna.
-        </p>
+          <motion.p className="hero-description" variants={textVariants}>
+            I’m a junior web developer who enjoys turning ideas into useful
+            digital experiences—with thoughtful design, practical functionality,
+            and a smooth user experience.
+          </motion.p>
 
-        <div className="hero-actions">
-          <a className="hero-button hero-button-primary" href="#projects">
-            Lihat Proyek <ArrowUpRight size={18} />
-          </a>
+          <motion.div className="hero-actions" variants={textVariants}>
+            <a className="hero-button hero-button-primary" href="#projects">
+              Explore My Work <ArrowUpRight size={18} />
+            </a>
 
-          <a className="hero-button hero-button-secondary" href="#contact">
-            Hubungi Saya
-          </a>
-        </div>
+            <a className="hero-button hero-button-secondary" href="#contact">
+              Let’s Connect
+            </a>
+          </motion.div>
 
-        <a className="hero-scroll" href="#projects">
-          <ArrowDown size={16} />
-          <span>SCROLL TO EXPLORE</span>
-        </a>
+          <motion.a className="hero-scroll" href="#projects" variants={textVariants}>
+            <ArrowDown size={16} />
+            <span>SCROLL TO EXPLORE</span>
+          </motion.a>
+        </motion.div>
+
+        <motion.div
+          className="hero-image hero-image-glow"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
+        >
+          <div className="hero-image-backdrop" />
+          <img src="/image/nasa-profile.png" alt="Jawadhika Khoirun Nasa Annafi" />
+        </motion.div>
       </div>
     </section>
   )

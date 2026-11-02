@@ -107,10 +107,10 @@ const projects = [
     'Git',
     'GitHub',
   ],
-  image: '/image/datalens-ai.jpg',
+  image: '/image/datalens-ai.png',
   imageAlt: 'DataLens AI healthcare analytics dashboard preview',
   type: 'web',
-  status: 'Completed',
+  status: 'In Development',
   details: {
     overview:
       'DataLens AI is a team-developed web application for analyzing Puskesmas data across East Java. It combines dashboard summaries, interactive charts, geographic visualization, data input, and experimental AI-assisted analysis in one interface.',

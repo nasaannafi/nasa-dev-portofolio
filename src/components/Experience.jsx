@@ -1,4 +1,4 @@
-
+import ScrollReveal from './ScrollReveal'
 import {
   Code2,
   Gamepad2,
@@ -92,46 +92,50 @@ function Experience() {
             {experiences.map((item, index) => {
               const Icon = item.icon
 
-              return (
-                <article
-                  className="experience-card"
-                  key={`${item.role}-${item.period}`}
-                >
-                  <div className="experience-marker">
-                    <Icon size={20} strokeWidth={1.7} />
-                  </div>
+              
+return (
+  <ScrollReveal
+    key={`${item.role}-${item.period}`}
+    delay={index * 0.12}
+  >
+    <article className="experience-card">
+      <div className="experience-marker">
+        <Icon size={20} strokeWidth={1.7} />
+      </div>
 
-                  <div className="experience-card-content">
-                    <p className="experience-period">
-                      {item.period}
-                    </p>
+      <div className="experience-card-content">
+        <p className="experience-period">
+          {item.period}
+        </p>
 
-                    <h3 className="experience-role">
-                      {item.role}
-                    </h3>
+        <h3 className="experience-role">
+          {item.role}
+        </h3>
 
-                    <p className="experience-organization">
-                      {item.organization}
-                    </p>
+        <p className="experience-organization">
+          {item.organization}
+        </p>
 
-                    <span className="experience-type">
-                      {item.type}
-                    </span>
+        <span className="experience-type">
+          {item.type}
+        </span>
 
-                    <ul className="experience-highlights">
-                      {item.highlights.map((highlight) => (
-                        <li key={highlight}>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+        <ul className="experience-highlights">
+          {item.highlights.map((highlight) => (
+            <li key={highlight}>
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-                  <span className="experience-number">
-                    / 0{index + 1}
-                  </span>
-                </article>
-              )
+      <span className="experience-number">
+        / 0{index + 1}
+      </span>
+    </article>
+  </ScrollReveal>
+)
+
             })}
           </div>
         </div>

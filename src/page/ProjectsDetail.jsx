@@ -1,4 +1,4 @@
-
+import ScrollReveal from '../components/ScrollReveal'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import projects from '../data/Projects'
@@ -29,93 +29,100 @@ function ProjectsDetail() {
           <ArrowLeft size={16} />
           Back to Projects
         </Link>
+<ScrollReveal>
+  <header className="project-detail-header">
+    <p className="project-detail-category">
+      {project.category} / {project.number}
+    </p>
 
-        <header className="project-detail-header">
-          <p className="project-detail-category">
-            {project.category} / {project.number}
-          </p>
+    <h1>{project.name}</h1>
 
-          <h1>{project.name}</h1>
+    <p className="project-detail-description">
+      {project.description}
+    </p>
 
-          <p className="project-detail-description">
-            {project.description}
-          </p>
+    {project.links && (project.links.github || project.links.demo) && (
+      <div className="project-detail-links">
+        {project.links.github && (
+          <a
+            href={project.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-detail-link"
+          >
+            GitHub Repository
+          </a>
+        )}
 
-          
-{project.links && (project.links.github || project.links.demo) && (
-  <div className="project-detail-links">
-    {project.links.github && (
-      <a
-        href={project.links.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="project-detail-link"
-      >
-        GitHub Repository
-      </a>
+        {project.links.demo && (
+          <a
+            href={project.links.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-detail-link project-detail-link-primary"
+          >
+            Live Demo
+          </a>
+        )}
+      </div>
     )}
 
-    {project.links.demo && (
-      <a
-        href={project.links.demo}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="project-detail-link project-detail-link-primary"
-      >
-        Live Demo
-      </a>
-    )}
-  </div>
-)}
+    <div className="project-detail-tags">
+      {project.technologies.map((technology) => (
+        <span key={technology}>{technology}</span>
+      ))}
+    </div>
+  </header>
+</ScrollReveal>
 
-
-          <div className="project-detail-tags">
-            {project.technologies.map((technology) => (
-              <span key={technology}>{technology}</span>
-            ))}
+                <ScrollReveal delay={0.1}>
+          <div className="project-detail-image-wrapper">
+            <img
+              src={project.image}
+              alt={project.imageAlt}
+              className="project-detail-image"
+            />
           </div>
-        </header>
+        </ScrollReveal>
 
-        <div className="project-detail-image-wrapper">
-          <img
-            src={project.image}
-            alt={project.imageAlt}
-            className="project-detail-image"
-          />
-        </div>
+        <ScrollReveal delay={0.15}>
+          <section className="project-detail-about">
+            <p className="project-detail-label">
+              ABOUT THE PROJECT
+            </p>
+            <h2>Overview</h2>
+            <p>{details.overview}</p>
+          </section>
+        </ScrollReveal>
 
-        <section className="project-detail-about">
-          <p className="project-detail-label">
-            ABOUT THE PROJECT
-          </p>
-          <h2>Overview</h2>
-          <p>{details.overview}</p>
-        </section>
+        <ScrollReveal delay={0.2}>
+          <section className="project-detail-features">
+            <p className="project-detail-label">WHAT IT DOES</p>
+            <h2>Key Features</h2>
 
-        <section className="project-detail-features">
-          <p className="project-detail-label">WHAT IT DOES</p>
-          <h2>Key Features</h2>
+            <div className="project-detail-feature-grid">
+              {details.features.map((feature) => (
+                <article
+                  className="project-detail-feature"
+                  key={feature.title}
+                >
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
 
-          <div className="project-detail-feature-grid">
-            {details.features.map((feature) => (
-              <article
-                className="project-detail-feature"
-                key={feature.title}
-              >
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="project-detail-tech">
-          <p className="project-detail-label">
-            HOW IT WAS BUILT
-          </p>
-          <h2>Technical Implementation</h2>
-          <p>{details.implementation}</p>
-        </section>
+        <ScrollReveal delay={0.25}>
+          <section className="project-detail-tech">
+            <p className="project-detail-label">
+              HOW IT WAS BUILT
+            </p>
+            <h2>Technical Implementation</h2>
+            <p>{details.implementation}</p>
+          </section>
+        </ScrollReveal>
       </div>
     </main>
   )

@@ -174,3 +174,12 @@
     padding: 20px;
   }
 }
+
+.projects-grid > div {
+  height: 100%;
+}
+
+.projects-grid .project-card {
+  height: 100%;
+  box-sizing: border-box;
+}

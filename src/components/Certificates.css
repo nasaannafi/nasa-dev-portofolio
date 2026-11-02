@@ -226,3 +226,13 @@
     transform: none;
   }
 }
+
+
+.certificates-grid > div {
+  height: 100%;
+}
+
+.certificates-grid .certificate-card {
+  height: 100%;
+  box-sizing: border-box;
+}
